@@ -1,6 +1,6 @@
-## Contributing to Babel Starter Kit
+## Contributing to React Page Context
 
-♥ [Babel Starter Kit](https://www.kriasoft.com/babel-starter-kit) and want to get involved? Thanks!
+♥ [React Page Context](https://github.com/kriasoft/page-context) and want to get involved? Thanks!
 There are plenty of ways you can help!
 
 Please take a moment to review this document in order to make the contribution process easy and
@@ -13,13 +13,13 @@ addressing your issue or assessing patches and features.
 
 ### Using the issue tracker
 
-The [issue tracker](https://github.com/kriasoft/babel-starter-kit/issues) is the preferred channel
+The [issue tracker](https://github.com/kriasoft/page-context/issues) is the preferred channel
 for [bug reports](#bugs), [features requests](#features) and [submitting pull requests](#pull-requests),
 but please respect the following restrictions:
 
 * Please **do not** use the issue tracker for personal support requests.
-  [Stack Overflow](https://stackoverflow.com/questions/tagged/babel-starter-kit),
-  [Gitter](https://gitter.im/kriasoft/babel-starter-kit) or
+  [Stack Overflow](https://stackoverflow.com/questions/tagged/react-starter-kit),
+  [Gitter](https://gitter.im/kriasoft/react-starter-kit) or
   [Codementor](https://www.codementor.io/koistya) are better places to get help.
 
 * Please **do not** derail or troll issues. Keep the discussion on topic and respect the opinions of
@@ -92,11 +92,11 @@ Adhering to the following process is the best way to get your work included in t
 
    ```bash
    # Clone your fork of the repo into the current directory
-   git clone https://github.com/<your-username>/babel-starter-kit.git
+   git clone https://github.com/<your-username>/page-context.git
    # Navigate to the newly cloned directory
-   cd babel-starter-kit
+   cd page-context
    # Assign the original repo to a remote called "upstream"
-   git remote add upstream https://github.com/kriasoft/babel-starter-kit.git
+   git remote add upstream https://github.com/kriasoft/page-context.git
    ```
 
 2. If you cloned a while ago, get the latest changes from upstream:

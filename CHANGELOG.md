@@ -1,30 +1,14 @@
-## Babel Starter Kit Change Log
+## React Page Context Change Log
 
 All notable changes to this project will be documented in this file.
 
 ### [Unreleased][unreleased]
 
-- Allow to execute tests in a browser environment (PLANNED)
+- Add support of meta tags (PLANNED)
 
-### [v1.1.2] - 2016-04-03
+### [v0.0.1] - 2016-04-11
 
-- Add `npm run test:watch` npm script for running tests in watch mode
-- Add a recipe: Testing with `mocha` and `jsdom` 
-- Add a recipe: Throwing errors with FB's `invariant` (`fbjs`) library
-- Update `eslint` and `babel-eslint` npm modules to the latest versions
-- Update unit test code sample
-- Add [CONTRIBUTING.md](CONTRIBUTING.md) and [CHANGELOG.md](CHANGELOG.md) files
+- Initial pre-release
 
-### [v1.1.0] - 2016-03-31
-
-- Add code coverage in unit tests with [Istanbul](https://github.com/gotwarlost/istanbul) and [Coveralls](https://coveralls.io/) [#8](https://github.com/kriasoft/babel-starter-kit/pull/8)
-
-### [v1.0.0] - 2016-03-30
-
-- Clean up the code and `package.json` file, update project dependencies
-- Integrate [Easystatic](https://easystatic.com) that generates a static site from the `docs/*.md` files
-
-[unreleased]: https://github.com/kriasoft/babel-starter-kit/compare/v1.1.2...HEAD
-[v1.1.2]: https://github.com/kriasoft/babel-starter-kit/compare/v1.1.0...v1.1.2
-[v1.1.0]: https://github.com/kriasoft/babel-starter-kit/compare/v1.0.0...v1.1.0
-[v1.0.0]: https://github.com/kriasoft/babel-starter-kit/compare/v0.1.1...v1.0.0
+[unreleased]: https://github.com/kriasoft/page-context/compare/v0.0.1...HEAD
+[v0.0.1]: https://github.com/kriasoft/page-context/compare/6f695ade34cf673892389271d157310ce1111ad1...v0.0.1

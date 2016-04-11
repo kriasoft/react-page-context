@@ -1,5 +1,4 @@
 .idea
 .travis.xml
 coverage
-docs
 test

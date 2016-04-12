@@ -1,6 +1,6 @@
 ## Contributing to React Page Context
 
-♥ [React Page Context](https://github.com/kriasoft/page-context) and want to get involved? Thanks!
+♥ [React Page Context](https://github.com/kriasoft/react-page-context) and want to get involved? Thanks!
 There are plenty of ways you can help!
 
 Please take a moment to review this document in order to make the contribution process easy and
@@ -13,7 +13,7 @@ addressing your issue or assessing patches and features.
 
 ### Using the issue tracker
 
-The [issue tracker](https://github.com/kriasoft/page-context/issues) is the preferred channel
+The [issue tracker](https://github.com/kriasoft/react-page-context/issues) is the preferred channel
 for [bug reports](#bugs), [features requests](#features) and [submitting pull requests](#pull-requests),
 but please respect the following restrictions:
 
@@ -92,11 +92,11 @@ Adhering to the following process is the best way to get your work included in t
 
    ```bash
    # Clone your fork of the repo into the current directory
-   git clone https://github.com/<your-username>/page-context.git
+   git clone https://github.com/<your-username>/react-page-context.git
    # Navigate to the newly cloned directory
    cd page-context
    # Assign the original repo to a remote called "upstream"
-   git remote add upstream https://github.com/kriasoft/page-context.git
+   git remote add upstream https://github.com/kriasoft/react-page-context.git
    ```
 
 2. If you cloned a while ago, get the latest changes from upstream:

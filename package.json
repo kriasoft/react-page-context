@@ -1,8 +1,8 @@
 {
-  "name": "page-context",
-  "version": "0.0.2",
+  "name": "react-page-context",
+  "version": "0.0.3",
   "description": "Set document's title, description and other meta tags, script and link elements in React applications",
-  "repository": "kriasoft/page-context",
+  "repository": "kriasoft/react-page-context",
   "author": "Kriasoft <hello@kriasoft.com> (https://www.kriasoft.com)",
   "contributors": [
     "Konstantin Tarkus <hello@tarkus.me> (http://tarkus.me)"

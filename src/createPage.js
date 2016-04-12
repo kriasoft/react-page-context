@@ -1,5 +1,5 @@
 /**
- * React Page Context (https://github.com/kriasoft/page-context)
+ * React Page Context (https://github.com/kriasoft/react-page-context)
  *
  * Copyright © 2016 Kriasoft, LLC. All rights reserved.
  *

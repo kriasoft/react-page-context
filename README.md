@@ -1,10 +1,10 @@
 # React Page Context
 
-[![NPM version](http://img.shields.io/npm/v/page-context.svg?style=flat-square)](https://www.npmjs.com/package/page-context)
-[![NPM downloads](http://img.shields.io/npm/dm/page-context.svg?style=flat-square)](https://www.npmjs.com/package/page-context)
-[![Build Status](http://img.shields.io/travis/kriasoft/page-context/master.svg?style=flat-square)](https://travis-ci.org/kriasoft/page-context)
-[![Coverage Status](https://img.shields.io/coveralls/kriasoft/page-context.svg?style=flat-square)](https://coveralls.io/github/kriasoft/page-context)
-[![Dependency Status](http://img.shields.io/david/kriasoft/page-context.svg?style=flat-square)](https://david-dm.org/kriasoft/page-context)
+[![NPM version](http://img.shields.io/npm/v/react-page-context.svg?style=flat-square)](https://www.npmjs.com/package/react-page-context)
+[![NPM downloads](http://img.shields.io/npm/dm/react-page-context.svg?style=flat-square)](https://www.npmjs.com/package/react-page-context)
+[![Build Status](http://img.shields.io/travis/kriasoft/react-page-context/master.svg?style=flat-square)](https://travis-ci.org/kriasoft/react-page-context)
+[![Coverage Status](https://img.shields.io/coveralls/kriasoft/react-page-context.svg?style=flat-square)](https://coveralls.io/github/kriasoft/react-page-context)
+[![Dependency Status](http://img.shields.io/david/kriasoft/react-page-context.svg?style=flat-square)](https://david-dm.org/kriasoft/react-page-context)
 [![Online Chat](http://img.shields.io/badge/chat_room-%23react--starter--kit-blue.svg?style=flat-square)](https://gitter.im/kriasoft/react-starter-kit)
 
 > A higher-order React component that allows to set document's title, description and other meta
@@ -17,12 +17,12 @@ Join [#react-starter-git](https://gitter.im/kriasoft/react-starter-kit) on Gitte
 ### How to Install
 
 ```sh
-$ npm install page-context --save
+$ npm install react-page-context --save
 ```
 
 ### Getting Started
 
-1. Import `PageContext` types from `page-context` npm module
+1. Import `PageContext` types from `react-page-context` npm module
 2. Add `contextTypes` static property to your React component that needs access to
    `document.title` and other `<head>` elements
 3. Use `context.page` function to manipulate document's `<head>` section
@@ -57,7 +57,7 @@ export default HomePage;
 ```js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PageContext from 'page-context';
+import PageContext from 'react-page-context';
 import HomePage from './components/HomePage';
 
 ReactDOM.render(
@@ -75,7 +75,7 @@ ReactDOM.render(
 ```js
 import express from 'express';
 import ReactDOM from 'react-dom/server';
-import PageContext from 'page-context';
+import PageContext from 'react-page-context';
 import HomePage from './components/HomePage';
 
 const app = express();
@@ -103,7 +103,9 @@ app.listen(3000);
 ♥ React Page Context and willing to [contribute](CONTRIBUTE.md)? Great! Here is a list of
 challenges you can help with:
 
-* Comment on the API design [here](https://github.com/kriasoft/page-context/issues/1)
+* Comment on the API design [here](https://github.com/kriasoft/react-page-context/issues/1)
+* Add support of setting `<link>` and `<script>` elements via `context.page(...)`
+* Add support of setting HTML attributes such as `lang="..."`
 * Review and improve documentation to the project ([README.md](README.md))
 * Review and improve the source code ([createPage.js](src/createPage.js), [PageContext.js](src/PageContext.js))
 * Review and improve unit tests ([PageContextSpec.js](test/PageContextSpec.js))
@@ -129,4 +131,4 @@ The documentation to the project is licensed under the [CC BY-SA 4.0](http://cre
 license.
 
 ---
-Made with ♥ by Konstantin Tarkus ([@koistya](https://twitter.com/koistya)) and [contributors](https://github.com/kriasoft/page-context/graphs/contributors)
+Made with ♥ by Konstantin Tarkus ([@koistya](https://twitter.com/koistya)) and [contributors](https://github.com/kriasoft/react-page-context/graphs/contributors)

@@ -8,23 +8,26 @@
  */
 
 import { Component, PropTypes } from 'react';
-import Page from './Page';
+import createPage from './createPage';
 
 class PageContext extends Component {
 
   static propTypes = {
-    page: PropTypes.instanceOf(Page),
+    page: PropTypes.func,
     children: PropTypes.element.isRequired,
   };
 
   static childContextTypes = {
-    page: PropTypes.instanceOf(Page).isRequired,
+    page: PropTypes.func.isRequired,
   };
 
+  constructor(props, context) {
+    super(props, context);
+    this.page = props.page || createPage();
+  }
+
   getChildContext() {
-    return {
-      page: this.props.page || new Page(),
-    };
+    return { page: this.page };
   }
 
   render() {

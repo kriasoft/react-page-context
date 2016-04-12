@@ -1,7 +1,7 @@
 /**
- * Babel Starter Kit (https://www.kriasoft.com/babel-starter-kit)
+ * React Page Context (https://github.com/kriasoft/page-context)
  *
- * Copyright © 2015-2016 Kriasoft, LLC. All rights reserved.
+ * Copyright © 2016 Kriasoft, LLC. All rights reserved.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE.txt file in the root directory of this source tree.
@@ -11,7 +11,7 @@ import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import jsdom from 'mocha-jsdom';
 import { expect } from 'chai';
-import { Page, PageContext } from '../src';
+import PageContext from '../src';
 
 describe('PageContext', () => {
 
@@ -23,13 +23,10 @@ describe('PageContext', () => {
   it('should set document.title', (done) => {
     const container = document.getElementById('root');
     const Component = (props, { page }) => {
-      page.title = 'test 1'; // eslint-disable-line no-param-reassign
+      page({ title: 'test 1' });
       return <div />;
     };
-
-    Component.contextTypes = {
-      page: PropTypes.instanceOf(Page).isRequired,
-    };
+    Component.contextTypes = { page: PropTypes.func.isRequired };
 
     ReactDOM.render(<PageContext><Component /></PageContext>, container, () => {
       expect(container.innerHTML).to.be.equal('<div data-reactroot=""></div>');
@@ -38,23 +35,45 @@ describe('PageContext', () => {
     });
   });
 
-  it('should set a custom page context variable', (done) => {
-    const pageObj = new Page();
+  it('should set meta tags', (done) => {
     const container = document.getElementById('root');
     const Component = (props, { page }) => {
-      page.title = 'test 2'; // eslint-disable-line no-param-reassign
+      page({ meta: [{ name: 'description', content: 'some content' }] });
       return <div />;
     };
+    Component.contextTypes = { page: PropTypes.func.isRequired };
 
-    Component.contextTypes = {
-      page: PropTypes.instanceOf(Page).isRequired,
-    };
-
-    ReactDOM.render(<PageContext page={pageObj}><Component /></PageContext>, container, () => {
-      expect(document.title).to.be.equal('test 2');
-      expect(pageObj.title).to.be.equal('test 2');
+    ReactDOM.render(<PageContext><Component /></PageContext>, container, () => {
+      expect(container.innerHTML).to.be.equal('<div data-reactroot=""></div>');
+      expect(document.title).to.be.empty;
+      expect(document.head.innerHTML)
+        .to.be.equal('<meta name="description" content="some content">');
       done();
     });
   });
+
+  it('should read page metadata via ref={c => c.page}', (done) => {
+    let pageCtx;
+    const container = document.getElementById('root');
+    const Component = (props, { page }) => {
+      page({ title: 'test 2' });
+      return <div />;
+    };
+
+    Component.contextTypes = { page: PropTypes.func.isRequired };
+
+    ReactDOM.render(
+      <PageContext ref={c => { pageCtx = c.page; }}>
+        <Component />
+      </PageContext>,
+      container,
+      () => {
+        expect(document.title).to.be.equal('test 2');
+        expect(pageCtx).to.be.ok.and.a('function');
+        expect(pageCtx()).to.be.deep.equal({ title: 'test 2' });
+        done();
+      });
+  });
+
 
 });

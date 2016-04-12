@@ -22,10 +22,10 @@ $ npm install page-context --save
 
 ### Getting Started
 
-1. Import `Page` and `PageContext` types from `page-context` npm module
-2. Add `contextTypes` static property to your React component that needs access to the
-   `document.title` and other `head` elements
-3. Use `context.page` variable to manipulate document's `head` section
+1. Import `PageContext` types from `page-context` npm module
+2. Add `contextTypes` static property to your React component that needs access to
+   `document.title` and other `<head>` elements
+3. Use `context.page` function to manipulate document's `<head>` section
 
 Here is an example:
 
@@ -33,10 +33,12 @@ Here is an example:
 
 ```js
 import React, { PropTypes} from 'react';
-import { Page } from 'page-context';
 
 function HomePage(props, { page }) {
-  page.title = 'My Home Page';
+  page({
+   title: 'My Home Page',
+   meta: [{ name: 'description', content: 'Some page description' }]
+  });
   return (
     <div>
       <h1>Welcome!</h1>
@@ -45,7 +47,7 @@ function HomePage(props, { page }) {
   );
 }
 
-HomePage.contextTypes = { page: PropTypes.instanceOf(Page).isRequired };
+HomePage.contextTypes = { page: PropTypes.func.isRequired };
 
 export default HomePage;
 ```
@@ -55,11 +57,45 @@ export default HomePage;
 ```js
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { PageContext } from 'page-context';
+import PageContext from 'page-context';
 import HomePage from './components/HomePage';
 
-const container = document.getElementById('root');
-ReactDOM.render(<PageContext><HomePage /></PageContext>, container);
+ReactDOM.render(
+  <PageContext>
+    <HomePage />
+  </PageContext>,
+  document.getElementById('root')
+);
+```
+
+### Server-side Rendering Example
+
+#### `server.js`
+
+```js
+import express from 'express';
+import ReactDOM from 'react-dom/server';
+import PageContext from 'page-context';
+import HomePage from './components/HomePage';
+
+const app = express();
+
+app.get('/', (req, res) => {
+  let page;
+  const body = ReactDOM.renderToString(
+    <PageContext ref={component => { page = component.page(); }}>
+      <HomePage />
+    </PageContext>
+  );
+  res.send(`
+    <html>
+      <head><title>${page.title}</title></head>
+      <body><div id="root">${body}</div></body>
+    </html>
+  `)
+});
+
+app.listen(3000);
 ```
 
 ### Backers

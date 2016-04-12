@@ -98,17 +98,18 @@ app.get('/', (req, res) => {
 app.listen(3000);
 ```
 
-### Backers
+### Contribute
 
-♥ React Page Context? Help us keep it alive by donating funds to cover project expenses via
-[Patreon](https://www.patreon.com/tarkus) or [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=RETHAJHV3T972)!
+♥ React Page Context and willing to [contribute](CONTRIBUTE.md)? Great! Here is a list of
+challenges you can help with:
 
-<a href="https://twitter.com/koistya" target="_blank" title="Konstantin Tarkus">
-  <img src="https://github.com/koistya.png?size=64" width="64" height="64">
-</a>
-<a href="https://www.patreon.com/tarkus" target="_blank">
-  <img src="https://opencollective.com/static/images/become_backer.svg" width="64" height="64">
-</a>
+* Comment on the API design [here](https://github.com/kriasoft/page-context/issues/1)
+* Review and improve documentation to the project ([README.md](README.md))
+* Review and improve the source code ([createPage.js](src/createPage.js), [PageContext.js](src/PageContext.js))
+* Review and improve unit tests ([PageContextSpec.js](test/PageContextSpec.js))
+* Suggest ways to improve performance of this component
+* Configure automated tests in real browsers via Travis and Sauce Labs or Browserstack
+* ...
 
 ### Related Projects
 
@@ -117,8 +118,8 @@ app.listen(3000);
 
 ### Get in Touch
 
- * [#react-starter-kit](https://gitter.im/kriasoft/react-starter-kit) on Gitter
- * [@koistya](https://twitter.com/koistya) on [Codementor](https://www.codementor.io/koistya)
+* [#react-starter-kit](https://gitter.im/kriasoft/react-starter-kit) on Gitter
+* [@koistya](https://twitter.com/koistya) on [Codementor](https://www.codementor.io/koistya)
 
 ### License
 

@@ -7,4 +7,5 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
+export createPage from './createPage';
 export default from './PageContext';

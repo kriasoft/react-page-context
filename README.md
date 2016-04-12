@@ -9,7 +9,7 @@
 
 > A higher-order React component that allows to set document's title, description and other meta
 > tags, as well as `<link>` and `<script>` tags from inside regular [React](https://facebook.github.io/react/)
-> components via `context.props` [context variable](https://facebook.github.io/react/docs/context).
+> components via `context.page` [context variable](https://facebook.github.io/react/docs/context).
 
 See the [changelog](CHANGELOG.md) for past and future (planned) changes to the project &nbsp;|&nbsp;
 Join [#react-starter-git](https://gitter.im/kriasoft/react-starter-kit) on Gitter to stay up to date

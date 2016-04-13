@@ -1,6 +1,6 @@
 {
   "name": "react-page-context",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "React Page Context allows to manage document's title, description and other meta tags, as well as <script> and <link> elements in SPA applications",
   "repository": "kriasoft/react-page-context",
   "author": "Kriasoft <hello@kriasoft.com> (https://www.kriasoft.com)",
@@ -71,6 +71,6 @@
     "test:cover": "babel-node ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "build": "rimraf lib && babel src --out-dir lib",
-    "publish": "rimraf lib && babel src --out-dir lib"
+    "prepublish": "rimraf lib && babel src --out-dir lib"
   }
 }

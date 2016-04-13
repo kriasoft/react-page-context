@@ -1,6 +1,6 @@
 {
   "name": "react-page-context",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "React Page Context allows to manage document's title, description and other meta tags, as well as <script> and <link> elements in SPA applications",
   "repository": "kriasoft/react-page-context",
   "author": "Kriasoft <hello@kriasoft.com> (https://www.kriasoft.com)",

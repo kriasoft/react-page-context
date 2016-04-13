@@ -8,4 +8,5 @@
  */
 
 export createPage from './createPage';
+export { default as PageContext } from './PageContext';
 export default from './PageContext';

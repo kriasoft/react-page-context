@@ -6,6 +6,13 @@ All notable changes to this project will be documented in this file.
 
 - Add support of setting `<link>` and `<script>` tags (PLANNED)
 
+### [v0.0.4]
+> 2016-04-13
+
+- Add `onChange` property to the `PageContext` React component
+- Allow to set a "description" meta tag by calling `context.page({ description: 'hello' })`
+- Minimize the number of DOM manipulations to improve client-side performance
+
 ### [v0.0.3]
 > 2016-04-12
 
@@ -22,7 +29,8 @@ All notable changes to this project will be documented in this file.
 
 - Initial pre-release
 
-[unreleased]: https://github.com/kriasoft/react-page-context/compare/v0.0.3...HEAD
+[unreleased]: https://github.com/kriasoft/react-page-context/compare/v0.0.4...HEAD
+[v0.0.4]: https://github.com/kriasoft/react-page-context/compare/v0.0.3...v0.0.4
 [v0.0.3]: https://github.com/kriasoft/react-page-context/compare/v0.0.2...v0.0.3
 [v0.0.2]: https://github.com/kriasoft/react-page-context/compare/v0.0.1...v0.0.2
 [v0.0.1]: https://github.com/kriasoft/react-page-context/compare/6f695ade34cf673892389271d157310ce1111ad1...v0.0.1

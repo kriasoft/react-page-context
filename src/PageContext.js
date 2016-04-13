@@ -14,6 +14,7 @@ class PageContext extends Component {
 
   static propTypes = {
     page: PropTypes.func,
+    onChange: PropTypes.func,
     children: PropTypes.element.isRequired,
   };
 
@@ -23,7 +24,7 @@ class PageContext extends Component {
 
   constructor(props, context) {
     super(props, context);
-    this.page = props.page || createPage();
+    this.page = props.page || createPage({ onChange: this.props.onChange });
   }
 
   getChildContext() {

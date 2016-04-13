@@ -7,50 +7,111 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-function createPage() {
-  const cache = Object.create(null);
-  const canUseDOM = !!(
+import Page from './Page';
+
+let cache;
+let canUseDOM;
+const metaKeys = ['name', 'property', 'httpEquiv'];
+
+function metaKeyToAttr(key) {
+  return key === 'httpEquiv' ? 'http-equiv' : key;
+}
+
+function page(options, data) {
+  let notifyChange = false;
+
+  // Calling context.page() without any arguments returns the current's page metadata
+  if (!data) {
+    return options.cache;
+  }
+
+  const { title, description, meta = [] } = data;
+
+  // Set page title
+  // -------------------------------------------------------------------------
+  if (title !== undefined && options.cache.title !== title) {
+    options.cache.title = title; // eslint-disable-line no-param-reassign
+
+    if (options.canUseDOM && document.title !== title) {
+      document.title = title;
+    }
+
+    notifyChange = true;
+  }
+
+  // Set page description
+  // -------------------------------------------------------------------------
+  if (description !== undefined) {
+    meta.unshift({ name: 'description', content: description });
+  }
+
+  // Set meta tags
+  // -------------------------------------------------------------------------
+  for (const item of meta) {
+    for (const key of metaKeys) { // e.g. "name"
+      const keyValue = item[key]; // e.g. "description"
+
+      if (keyValue === undefined) {
+        continue;
+      }
+
+      const attr = metaKeyToAttr(key); // "httpEquiv" => "http-equiv"
+
+      let node;
+      let metaItem = options.cache.meta.find(x => x[attr] === keyValue);
+
+      if (metaItem) {
+        if (metaItem.content === item.content) {
+          continue;
+        }
+
+        if (options.canUseDOM) {
+          if (key === 'name' && keyValue === 'description') {
+            node = document.querySelector('meta[name="description"]');
+            if (node) {
+              node.parentNode.removeChild(node);
+              node = undefined;
+            }
+          } else {
+            node = document.querySelector(`meta[${attr}="${keyValue}"]`);
+          }
+        }
+
+        metaItem.content = item.content;
+      } else {
+        metaItem = { [attr]: keyValue, content: item.content };
+        options.cache.meta.push(metaItem);
+      }
+
+      if (options.canUseDOM) {
+        if (node) {
+          node.setAttribute('content', item.content);
+        } else {
+          node = document.createElement('meta');
+          node.setAttribute(attr, keyValue);
+          node.setAttribute('content', item.content);
+          document.head.appendChild(node);
+        }
+      }
+
+      notifyChange = true;
+    }
+  }
+
+  if (notifyChange && options.onChange) {
+    options.onChange(options.cache);
+  }
+
+  return undefined;
+}
+
+function createPage({ onChange } = {}) {
+  canUseDOM = canUseDOM === undefined ? !!(
     typeof window !== 'undefined' &&
     window.document &&
     window.document.createElement
-  );
-
-  return function page(data) {
-    if (data) {
-      const { title, meta } = data;
-      if (title) {
-        cache.title = title;
-
-        if (canUseDOM) {
-          document.title = title;
-        }
-      }
-
-      if (meta) {
-        cache.meta = meta;
-        if (canUseDOM) {
-          for (const item of meta) {
-            // Remove and create a new <meta /> tag in order to make it work
-            // with bookmarks in Safari
-            const elements = document.getElementsByTagName('meta');
-            Array.from(elements).forEach((element) => {
-              if (element.getAttribute('name') === item.name) {
-                element.parentNode.removeChild(element);
-              }
-            });
-            const elem = document.createElement('meta');
-            elem.setAttribute('name', item.name);
-            elem.setAttribute('content', item.content);
-            document
-              .getElementsByTagName('head')[0]
-              .appendChild(elem);
-          }
-        }
-      }
-    }
-
-    return { title: cache.title };
-  };
+  ) : canUseDOM;
+  return page.bind(undefined, { cache: cache || new Page(), canUseDOM, onChange });
 }
 
 export default createPage;

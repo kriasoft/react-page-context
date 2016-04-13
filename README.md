@@ -32,12 +32,15 @@ Here is an example:
 #### `components/HomePage.js`
 
 ```js
-import React, { PropTypes} from 'react';
+import React, { PropTypes } from 'react';
 
 function HomePage(props, { page }) {
   page({
    title: 'My Home Page',
-   meta: [{ name: 'description', content: 'Some page description' }]
+   description: 'Some page description',
+   meta: [
+     { name: 'twitter:card', content: 'summary' }
+   ]
   });
   return (
     <div>
@@ -68,6 +71,21 @@ ReactDOM.render(
 );
 ```
 
+It should yield the following HTML markup:
+
+```html
+<html>
+  <head>
+    <title>My Home Page</title>
+    <meta name="description" content="Some page description">
+    <meta name="twitter:card" content="summary">
+  </head>
+  <body>
+    ...
+  </body>
+</html>
+```
+
 ### Server-side Rendering Example
 
 #### `server.js`
@@ -83,13 +101,16 @@ const app = express();
 app.get('/', (req, res) => {
   let page;
   const body = ReactDOM.renderToString(
-    <PageContext ref={component => { page = component.page(); }}>
+    <PageContext onChange={value => (page = value)}>
       <HomePage />
     </PageContext>
   );
   res.send(`
     <html>
-      <head><title>${page.title}</title></head>
+      <head>
+        <title>${page.title}</title>
+        ${page.meta.map(meta => `<meta name="${meta.name}" content="${meta.content}">`)}
+      </head>
       <body><div id="root">${body}</div></body>
     </html>
   `)
@@ -97,6 +118,10 @@ app.get('/', (req, res) => {
 
 app.listen(3000);
 ```
+
+**Node**: This is a simplified example. In a real-world app you would need to replace the ES6
+template string above with a real template powered by Jade or EJS for security and performance
+considerations.
 
 ### Contribute
 

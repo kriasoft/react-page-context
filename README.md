@@ -12,7 +12,7 @@
 > components via `context.page` [context variable](https://facebook.github.io/react/docs/context).
 
 See the [changelog](CHANGELOG.md) for past and future (planned) changes to the project &nbsp;|&nbsp;
-Join [#react-starter-git](https://gitter.im/kriasoft/react-starter-kit) on Gitter to stay up to date
+Join [#react-starter-kit](https://gitter.im/kriasoft/react-starter-kit) on Gitter to stay up to date
 
 ### How to Install
 
@@ -125,7 +125,7 @@ considerations.
 
 ### Contribute
 
-♥ React Page Context and willing to [contribute](CONTRIBUTE.md)? Great! Here is a list of
+♥ React Page Context and willing to [contribute](CONTRIBUTING.md)? Great! Here is a list of
 challenges you can help with:
 
 * Comment on the API design [here](https://github.com/kriasoft/react-page-context/issues/1)
@@ -133,7 +133,7 @@ challenges you can help with:
 * Add support of setting HTML attributes such as `lang="..."`
 * Review and improve documentation to the project ([README.md](README.md))
 * Review and improve the source code ([createPage.js](src/createPage.js), [PageContext.js](src/PageContext.js))
-* Review and improve unit tests ([PageContextSpec.js](test/PageContextSpec.js))
+* Review and improve tests and test coverage ([PageContextSpec.js](test/PageContextSpec.js))
 * Suggest ways to improve performance of this component
 * Configure automated tests in real browsers via Travis and Sauce Labs or Browserstack
 * ...
